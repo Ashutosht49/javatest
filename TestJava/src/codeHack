@@ -1,0 +1,86 @@
+Find the smallest positive integer that does not occur in a given sequence
+int N = A.length;
+Set<Integer> set = new HashSet<>();
+for (int a : A) {
+    if (a > 0) {
+        set.add(a);
+    }
+}
+for (int i = 1; i <= N + 1; i++) {
+    if (!set.contains(i)) {
+        return i;
+    }
+}
+
+Java Program to Display Fibonacci Series
+		int n = 10, t1 = 0, t2 = 1;
+        System.out.print("First " + n + " terms: ");
+        for (int i = 1; i <= n; ++i)
+        {
+            System.out.print(t1 + " + ");
+            int sum = t1 + t2;
+            t1 = t2;
+            t2 = sum;
+        }
+        
+check for pair in A[] with sum as x
+static void printpairs(int arr[], int sum) 
+    { 
+        HashSet<Integer> s = new HashSet<Integer>(); 
+        for (int i = 0; i < arr.length; ++i) { 
+            int temp = sum - arr[i]; 
+  
+            // checking for condition 
+            if (s.contains(temp)) { 
+                System.out.println("Pair with given sum " + sum + " is (" + arr[i] + ", " + temp + ")"); 
+            } 
+            s.add(arr[i]); 
+        } 
+    } 
+check pailindrome
+		int r, sum=0,temp;
+		int n=4554;
+		temp=n;
+		while(n>0){
+			r=n%10;
+			sum=(sum*10)+r;
+			n=n/10;
+		}
+		if(temp==sum){
+			System.out.println("Yes");
+		}
+		else {
+			System.out.println("No");
+		}    
+		
+Longest Pailindrome No
+
+static public String intermediatePalindrome(String s, int left, int right) {
+		if (left > right) return null;
+		while (left >= 0 && right < s.length()
+				&& s.charAt(left) == s.charAt(right)) {
+			left--;
+			right++;
+		}
+		return s.substring(left + 1, right);
+	}
+
+	// O(n^2)
+	public static String longestPalindromeString(String s) {
+		if (s == null) return null;
+		String longest = s.substring(0, 1);
+		for (int i = 0; i < s.length() - 1; i++) {
+			//odd cases like 121
+			String palindrome = intermediatePalindrome(s, i, i);
+			if (palindrome.length() > longest.length()) {
+				longest = palindrome;
+			}
+			//even cases like 1221
+			palindrome = intermediatePalindrome(s, i, i + 1);
+			if (palindrome.length() > longest.length()) {
+				longest = palindrome;
+			}
+		}
+		return longest;
+	}
+		
