@@ -16,6 +16,7 @@ public class RotationSortArrayProblem {
 			}
 		}
 		else {
+			
 			while(mid<last){
 				if(arr[last]==n)
 				{
