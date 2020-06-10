@@ -1,3 +1,4 @@
+package com.test.def;
 
 class PrintThreadSeq implements Runnable{
 	static Object lock = new Object();

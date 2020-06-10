@@ -1,3 +1,4 @@
+package com.test.def;
 class StackAndHeapMemory
 {
      static void methodOne()

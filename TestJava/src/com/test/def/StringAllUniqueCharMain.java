@@ -1,3 +1,4 @@
+package com.test.def;
 
 public class StringAllUniqueCharMain {
 

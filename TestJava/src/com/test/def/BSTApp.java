@@ -1,3 +1,4 @@
+package com.test.def;
 class Node{
 	int data;
 	Node left;

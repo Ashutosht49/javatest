@@ -1,3 +1,4 @@
+package com.test.def;
 
 public class TestPailindromInAString {
 	public static String runPa(String s){

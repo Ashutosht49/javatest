@@ -1,5 +1,6 @@
 package com.test.algo;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class TreeDESWithoutRecursion {
@@ -15,11 +16,51 @@ public class TreeDESWithoutRecursion {
 				curr=curr.left;
 			}
 			curr=s.pop();
-			System.out.println(curr.data+" ");
+			System.out.println(curr.data+" :Inoreder ");
 			curr=curr.right;
 		}
 	}
-
+	public void postOreder(){
+		if(root ==null)
+			return;
+		LinkedList<Node> stack = new LinkedList<Node>();
+		stack.push(root);
+		while(!stack.isEmpty()){
+			Node next = stack.peek();
+			Boolean finishedSubTree = (next.right == root || next.left == root );
+			Boolean isLeaf = (next.right == null || next.left == null);
+			if(finishedSubTree || isLeaf){
+				stack.pop();
+				System.out.println(next.data+":PostOreder");
+				root = next;
+			} else {
+				if(next.right != null){
+					stack.push(next.right);
+				}
+				if(next.left != null){
+					stack.push(next.left);
+				}
+			}
+		}
+		
+	}
+	public void preeOrder(){
+		if(root == null)
+			return;
+		Stack<Node> st = new Stack<Node>();
+		st.push(root);
+		while(st.empty() == false){
+			Node myNode = st.peek();
+			System.out.println("Data::"+myNode.data);
+			st.pop();
+			if(myNode.right != null){
+				st.push(myNode.right);
+			}
+			if(myNode.left != null){
+				st.push(myNode.left);
+			}
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TreeDESWithoutRecursion tree = new TreeDESWithoutRecursion(); 
@@ -29,11 +70,10 @@ public class TreeDESWithoutRecursion {
         tree.root.left.left = new Node(4); 
         tree.root.left.right = new Node(5); 
         tree.inorder(); 
-
+        tree.postOreder();
+        tree.preeOrder();
 	}
-
 }
-
 class Node{
 	int data;
 	Node left, right;

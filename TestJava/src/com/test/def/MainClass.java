@@ -1,3 +1,4 @@
+package com.test.def;
 class X
 {
     static void staticMethod()
