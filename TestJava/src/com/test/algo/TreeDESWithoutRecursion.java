@@ -61,6 +61,17 @@ public class TreeDESWithoutRecursion {
 			}
 		}
 	}
+	boolean checkBST(){
+		return isBSTU(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+	}
+	boolean isBSTU(Node node, int min, int max){
+		if(node == null)
+			return true;
+		if(root.data< min && root.data > max)
+			return false;
+		return (isBSTU(node.left, node.left.left.data, node.left.right.data) &&
+				isBSTU(node.right, node.right.left.data, node.right.right.data));
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TreeDESWithoutRecursion tree = new TreeDESWithoutRecursion(); 
